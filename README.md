@@ -50,6 +50,7 @@ server.listen(3000);
 import { io } from "socket.io-client";
 const socket = io("http://localhost:3000");
 
+---
 
 ## 3. Events: emit and on
 
@@ -85,6 +86,7 @@ socket.on("welcome", (msg) => {
   console.log(msg);
 });
 
+---
 
 ## 4. Broadcasting
 
@@ -101,6 +103,7 @@ Sends to all connected clients (including sender).
 
 io.emit("announcement", "Server will restart soon!");
 
+---
 
 ## 5. Rooms
 
@@ -116,7 +119,7 @@ io.to("room1").emit("receive-message", "Hello Room 1");
 ### Send to room except sender
 socket.to("room1").emit("receive-message", "Hi everyone except me!");
 
-
+---
 
 ## 6. to and in
 
@@ -129,6 +132,7 @@ io.to(socket.id).emit("private-message", "Hello personally");
 ### in (alias of to)
 io.in("room1").emit("message", "Same as to()");
 
+---
 
 ## 7. broadcast
 
